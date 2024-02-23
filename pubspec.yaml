@@ -1,0 +1,23 @@
+name: tut_login_app_example
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  firebase_auth: ^4.17.4
+  firebase_core: ^2.25.4
+  flutter:
+    sdk: flutter
+  flutter_signin_button: ^2.0.0
+  google_sign_in: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
