@@ -2,11 +2,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginRepository {
+  final authInstance = FirebaseAuth.instance;
+
+  Stream<User?> get onAuthStateChanged => authInstance.authStateChanges();
+
   /// Login
   Future<void> loginUser(String email, String password) async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      await authInstance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
     } catch (e) {
       print(e);
     }
@@ -15,7 +21,7 @@ class LoginRepository {
   /// Logout
   Future<void> logoutUser() async {
     try {
-      await FirebaseAuth.instance.signOut();
+      await authInstance.signOut();
     } catch (e) {
       print(e);
     }
@@ -24,8 +30,10 @@ class LoginRepository {
   /// SignUp
   Future<void> signUp(String email, String password) async {
     try {
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      await authInstance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
     } catch (e) {
       print(e);
     }
@@ -34,7 +42,7 @@ class LoginRepository {
   /// Reset Password
   Future<void> resetPassword(String email) async {
     try {
-      FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      authInstance.sendPasswordResetEmail(email: email);
     } catch (e) {
       print(e);
     }
@@ -52,7 +60,7 @@ class LoginRepository {
         idToken: googleAuth?.idToken,
       );
 
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      return await authInstance.signInWithCredential(credential);
     } on Exception catch (e) {
       print('exception->$e');
     }
@@ -60,10 +68,16 @@ class LoginRepository {
 
   Future<bool> signOutFromGoogle() async {
     try {
-      await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
+      await authInstance.signOut();
+
       return true;
     } on Exception catch (_) {
       return false;
     }
+  }
+
+  User? getUser() {
+    return authInstance.currentUser;
   }
 }

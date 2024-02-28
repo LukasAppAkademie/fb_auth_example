@@ -42,7 +42,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-
+# Ignore google key files
 GoogleService-Info.plist
 google-services.json
 firebase_options.dart
