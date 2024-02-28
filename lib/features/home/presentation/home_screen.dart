@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(child: Text("Logged I as ${user?.email}")),
+        Center(child: Text("Logged in as ${user?.email}")),
         OutlinedButton(
             onPressed: () => repository.logoutUser(),
             child: const Text("LogOut"))
