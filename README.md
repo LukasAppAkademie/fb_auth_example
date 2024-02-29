@@ -30,10 +30,12 @@ To integrate Google authentication into your project, you need to do the followi
  
 
  Execute the following command in the terminal.
+ The default password is **android**
 
 
   ```terminal
   keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
   ```
+
 
  
