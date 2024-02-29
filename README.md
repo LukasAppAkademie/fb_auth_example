@@ -1,4 +1,4 @@
-# tut_login_app_example
+# Firebase Auth App Example
 
 A small app to demonstrate the usage of firebase authentication.
 
@@ -48,6 +48,7 @@ To integrate Google authentication into your project, you need to do the followi
  *Firebase-Console > Project-settings > Scroll down to "My-Apps" > click on "add new fingerprint"*
  
 ![Bildschirmfoto 2024-02-29 um 11 48 49](https://github.com/LukasAppAkademie/fb_auth_example/assets/149885841/d7a29965-3e11-4a70-85e3-ec3dd540871a)
+
 
 
 
