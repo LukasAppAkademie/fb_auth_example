@@ -50,7 +50,7 @@ To integrate Google authentication into your project, you need to do the followi
 ![Bildschirmfoto 2024-02-29 um 11 48 49](https://github.com/LukasAppAkademie/fb_auth_example/assets/149885841/d7a29965-3e11-4a70-85e3-ec3dd540871a)
 
 
-Perfect we are Done 😁
+Perfect, we are done! 😁
 
 
 
