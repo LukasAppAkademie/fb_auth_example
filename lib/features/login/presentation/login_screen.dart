@@ -1,3 +1,5 @@
+import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:tut_login_app_example/features/login/data/login_repository.dart';
@@ -62,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     await widget.repository.signInWithGoogle();
 
                 if (userCredential.value != null) {
-                  print(userCredential.value.user!.email);
+                  dev.log(userCredential.value.user!.email);
                 }
               },
             ),
