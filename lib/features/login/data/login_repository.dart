@@ -1,3 +1,5 @@
+import 'dart:developer' as dev;
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -14,7 +16,7 @@ class LoginRepository {
         password: password,
       );
     } catch (e) {
-      print(e);
+      dev.log("$e");
     }
   }
 
@@ -23,7 +25,7 @@ class LoginRepository {
     try {
       await authInstance.signOut();
     } catch (e) {
-      print(e);
+      dev.log("$e");
     }
   }
 
@@ -35,7 +37,7 @@ class LoginRepository {
         password: password,
       );
     } catch (e) {
-      print(e);
+      dev.log("$e");
     }
   }
 
@@ -43,8 +45,9 @@ class LoginRepository {
   Future<void> resetPassword(String email) async {
     try {
       authInstance.sendPasswordResetEmail(email: email);
+      dev.log("reset password sent to $email");
     } catch (e) {
-      print(e);
+      dev.log("$e");
     }
   }
 
@@ -62,7 +65,7 @@ class LoginRepository {
 
       return await authInstance.signInWithCredential(credential);
     } on Exception catch (e) {
-      print('exception->$e');
+      dev.log('exception->$e');
     }
   }
 
